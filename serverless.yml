@@ -1,0 +1,44 @@
+service: serverless-lambda-demo # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  hello:
+    handler: handler.hello
+  create:
+    handler: handler.create # point to exported create function in handler.js
+    events:
+      - http:
+          path: todos # path will be domain.name.com/dev/notes
+          method: post
+          cors: true
+  getOne:
+    handler: handler.getOne
+    events:
+      - http:
+          path: todos/{id} # path will be domain.name.com/dev/notes/1
+          method: get
+          cors: true
+  getAll:
+    handler: handler.getAll # path will be domain.name.com/dev/notes
+    events:
+      - http:
+          path: todos
+          method: get
+          cors: true
+  update:
+    handler: handler.update # path will be domain.name.com/dev/notes/1
+    events:
+      - http:
+          path: todos/{id}
+          method: put
+          cors: true
+  delete:
+    handler: handler.delete
+    events:
+      - http:
+          path: todos/{id} # path will be domain.name.com/dev/notes/1
+          method: delete
+          cors: true
