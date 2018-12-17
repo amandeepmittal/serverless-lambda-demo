@@ -2,6 +2,7 @@
 
 This is demonstration of a REST API built with Serverless AWS Lambda and Node.js.
 
+You can find the complete tutorial for this at [this link](https://pusher.com/tutorials/serverless-backend-aws-lambda)
 ## Getting Started
 
 To get started, you need the following:
